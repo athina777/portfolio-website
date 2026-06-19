@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact | Athina Grigoriadou</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header aria-label="Primary">
+        <nav role="navigation">
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="home.html">Professional Page</a></li>
+                <li><a href="about.html">Goals and Objectives</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="portofolio.html">Portfolio</a></li>
+                <li><a href="interview.html">Interview</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <section class="hero-card narrow">
+            <p class="eyebrow">Get In Touch</p>
+            <h1>Contact</h1>
+            <p class="lead">If you'd like to get in touch, send a message using the form below.</p>
+        </section>
+
+        <section class="contact-layout">
+            <div class="contact-card">
+                <h2>Send a Message</h2>
+                <form id="gmail-contact-form">
+                    <label>Name
+                        <input type="text" name="name" required>
+                    </label>
+
+                    <label>Email
+                        <input type="email" name="email" required>
+                    </label>
+
+                    <label>Message
+                        <textarea name="message" rows="6" required></textarea>
+                    </label>
+
+                    <button class="button button-primary" type="submit">Send Message</button>
+                </form>
+
+                <p id="contact-status" class="status-text"></p>
+            </div>
+
+            <aside class="contact-card contact-details">
+                <h2>Contact Details</h2>
+                <p><strong>Email:</strong> athina.grigoriadou.7@gmail.com</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/athina-grigoriadou-73a365358/" target="_blank" rel="noopener">View Profile</a></p>
+                <p><strong>Background:</strong> Greece, cybersecurity, front-end development, and athletics.</p>
+            </aside>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('gmail-contact-form');
+        const status = document.getElementById('contact-status');
+        const recipientEmail = 'athina.grigoriadou.7@gmail.com';
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const name = (formData.get('name') || '').toString().trim();
+            const email = (formData.get('email') || '').toString().trim();
+            const message = (formData.get('message') || '').toString().trim();
+
+            if (!name || !email || !message) {
+                status.textContent = 'Please complete all required fields.';
+                return;
+            }
+
+            const subject = `Portfolio Contact from ${name}`;
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+            const params = new URLSearchParams({
+                view: 'cm',
+                fs: '1',
+                to: recipientEmail,
+                su: subject,
+                body
+            });
+
+            const gmailComposeUrl = `https://mail.google.com/mail/?${params.toString()}`;
+            const composeWindow = window.open(gmailComposeUrl, '_blank', 'noopener');
+
+            if (!composeWindow) {
+                const fallback = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = fallback;
+            }
+
+            status.textContent = 'Your message draft has been opened in Gmail.';
+            form.reset();
+        });
+    </script>
+</body>
+</html>
