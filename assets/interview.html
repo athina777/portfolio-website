@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interview</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Link your styles -->
+</head>
+<body>
+
+    <!-- This Header stays the same on every page -->
+    <header aria-label="Primary">
+        <nav role="navigation">
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="about.html">Goals and Objectives</a></li>
+                <li><a href="portofolio.html">Portfolio</a></li>
+                <li><a href="interview.html" aria-current="page">Interview</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- This Main area holds the unique data for each specific page -->
+    <main class="resume">
+        <section class="hero centered-hero" aria-labelledby="interview-heading">
+            <h1 id="interview-heading">Interview Preparation</h1>
+            <p>Written responses to common technical interview questions, aligned with my experience and development goals.</p>
+        </section>
+
+        <section aria-labelledby="interview-q-heading">
+            <h2 id="interview-q-heading">Interview Questions and Answers</h2>
+            <p>Written responses to common interview questions about development tools, languages, certifications, education, strengths, and business collaboration.</p>
+        </section>
+
+        <section aria-labelledby="q1">
+            <h2 id="q1">1. What development tools have you used?</h2>
+            <div class="video-embed">
+                    <video id="question-1-video" class="embedded-video" controls playsinline preload="none">
+                        <source src="videos/1-web.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q2">
+            <h2 id="q2">2. What programming languages have you used?</h2>
+            <div class="video-embed">
+                <video id="question-2-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q3">
+            <h2 id="q3">3. What technical certifications do you hold?</h2>
+            <div class="video-embed">
+                <video id="question-3-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q4">
+            <h2 id="q4">4. How do you maintain your technical certifications?</h2>
+            <div class="video-embed">
+                <video id="question-4-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q5">
+            <h2 id="q5">5. How is your education helping prepare you for the job market?</h2>
+            <div class="video-embed">
+                <video id="question-5-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/5.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q6">
+            <h2 id="q6">6. How would you rate your key competencies for this position?</h2>
+            <div class="video-embed">
+                <video id="question-6-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/6.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q7">
+            <h2 id="q7">7. What are your IT strengths and weaknesses?</h2>
+            <div class="video-embed">
+                <video id="question-7-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/7.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q8">
+            <h2 id="q8">8. Describe a recent project and your responsibilities.</h2>
+            <div class="video-embed">
+                <video id="question-8-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/8.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q9">
+            <h2 id="q9">9. What challenges might you expect in this position?</h2>
+            <div class="video-embed">
+                <video id="question-9-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/9.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section aria-labelledby="q10">
+            <h2 id="q10">10. Why is it important to work directly with business users?</h2>
+            <div class="video-embed">
+                <video id="question-10-video" class="embedded-video" controls playsinline preload="none">
+                    <source src="videos/10.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section>
+            <div class="contact-button-wrapper">
+                <a class="contact-button" href="../contact.html">Contact me</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Use each video's native audio track for maximum compatibility.
+        const videos = document.querySelectorAll('.embedded-video');
+
+        videos.forEach((video) => {
+            video.muted = false;
+            video.volume = 1;
+        });
+    </script>
+
+</body>
+</html>
