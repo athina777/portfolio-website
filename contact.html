@@ -3,60 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Contact | Athina Grigoriadou</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header aria-label="Primary">
         <nav role="navigation">
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="home.html">Professional Page</a></li>
-                <li><a href="about.html">Goals and Objectives</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="portofolio.html">Portfolio</a></li>
-                <li><a href="interview.html">Interview</a></li>
+                <li><a href="assets/resume.html">Resume</a></li>
+                <li><a href="assets/about.html">Goals and Objectives</a></li>
+                <li><a href="assets/portofolio.html">Portfolio</a></li>
+                <li><a href="assets/interview.html">Interview</a></li>
                 <li><a href="contact.html" aria-current="page">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="contact-page">
-        <section class="hero-card narrow">
-            <p class="eyebrow">Get In Touch</p>
-            <h1>Contact</h1>
-            <p class="lead">If you'd like to get in touch, send a message using the form below.</p>
-        </section>
+    <main>
+        <h1>Contact</h1>
+        <p>If you'd like to get in touch, send a message using the form below.</p>
 
-        <section class="contact-layout">
-            <div class="contact-card">
-                <h2>Send a Message</h2>
-                <form id="gmail-contact-form">
-                    <label>Name
-                        <input type="text" name="name" required>
-                    </label>
+        <form id="gmail-contact-form">
+            <label style="display:block;margin:12px 0;">Name
+                <input type="text" name="name" required style="width:100%;padding:8px;margin-top:6px;border:1px solid #e6e9ee;border-radius:6px;">
+            </label>
 
-                    <label>Email
-                        <input type="email" name="email" required>
-                    </label>
+            <label style="display:block;margin:12px 0;">Email
+                <input type="email" name="email" required style="width:100%;padding:8px;margin-top:6px;border:1px solid #e6e9ee;border-radius:6px;">
+            </label>
 
-                    <label>Message
-                        <textarea name="message" rows="6" required></textarea>
-                    </label>
+            <label style="display:block;margin:12px 0;">Message
+                <textarea name="message" rows="6" required style="width:100%;padding:8px;margin-top:6px;border:1px solid #e6e9ee;border-radius:6px;"></textarea>
+            </label>
 
-                    <button class="button button-primary" type="submit">Send Message</button>
-                </form>
+            <button type="submit" style="background:var(--accent);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600">Send Message</button>
+        </form>
 
-                <p id="contact-status" class="status-text"></p>
-            </div>
-
-            <aside class="contact-card contact-details">
-                <h2>Contact Details</h2>
-                <p><strong>Email:</strong> athina.grigoriadou.7@gmail.com</p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/athina-grigoriadou-73a365358/" target="_blank" rel="noopener">View Profile</a></p>
-                <p><strong>Background:</strong> Greece, cybersecurity, front-end development, and athletics.</p>
-            </aside>
-        </section>
+        <p id="contact-status" style="margin-top:12px;color:var(--muted);"></p>
     </main>
 
     <script>
@@ -74,6 +59,11 @@
 
             if (!name || !email || !message) {
                 status.textContent = 'Please complete all required fields.';
+                return;
+            }
+
+            if (recipientEmail === 'YOUR_GMAIL_ADDRESS@gmail.com') {
+                status.textContent = 'Set your Gmail address in contact.html first.';
                 return;
             }
 
@@ -96,9 +86,10 @@
                 window.location.href = fallback;
             }
 
-            status.textContent = 'Your message draft has been opened in Gmail.';
+            status.textContent = 'Gmail compose opened. Send the email from Gmail.';
             form.reset();
         });
     </script>
+
 </body>
 </html>

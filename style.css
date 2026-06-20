@@ -1,283 +1,63 @@
-:root{
-    --accent:#0b63ce;
-    --accent-dark:#084c9c;
-    --muted:#6b7280;
-    --bg:#f4f7fb;
-    --card:#ffffff;
-    --text:#111827;
-    --border:#e6e9ee;
-    --shadow:0 10px 30px rgba(15,23,42,0.08);
-}
-
+:root{ --accent:#0b63ce; --muted:#6b7280; --bg:#f7f8fb; --card:#ffffff; }
 *{box-sizing:border-box}
 html,body{height:100%;}
-body{
-    font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    margin:0;
-    background:linear-gradient(180deg, #f8fbff 0%, #f4f7fb 100%);
-    color:var(--text);
-}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#111827}
+header{width:100%;}
+/* Make the menu bar full-width and fixed to the top */
+nav{background:#fff; border-bottom:1px solid #e6e9ee; position:fixed;left:0;right:0;top:0;z-index:1000}
+nav ul.menu{list-style:none;margin:0;padding:0;display:flex;width:100%;max-width:none;justify-content:center;align-items:center;height:56px}
+nav ul.menu li{margin:0}
+nav ul.menu a{display:block;padding:14px 18px;color:var(--muted);text-decoration:none;font-weight:600;font-size:0.95rem}
+nav ul.menu a:hover, nav ul.menu a:focus{color:var(--accent);outline:none}
+
+/* Add top padding so main content is not hidden under the fixed nav */
+main{max-width:980px;margin:36px auto;padding:76px 20px 0;text-align:center}
+h1{margin:8px 0 18px;font-size:2rem;font-weight:700;color:#0f1724}
+img{border-radius:8px;max-width:100%;height:auto;display:block;margin:0 auto 20px;box-shadow:0 8px 24px rgba(17,24,39,0.08)}
+
+.intro-box{position:relative;margin:0 auto;padding:28px 32px;max-width:760px;background:var(--card);border:1px solid #e6e9ee;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);text-align:left;font-weight:500;line-height:1.7;color:#111827}
+.intro-box p{margin:0}
+.intro-meta{display:flex;gap:12px;margin-top:14px;color:var(--muted);font-size:0.95rem}
 
 a{color:var(--accent)}
-img{max-width:100%;height:auto;display:block}
 
-header{width:100%;}
-nav{
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--border);
-    position:fixed;
-    left:0;
-    right:0;
-    top:0;
-    z-index:1000;
+@media (max-width:640px){
+    nav ul.menu{flex-wrap:wrap}
+    nav ul.menu a{flex:1 1 50%;text-align:center}
+    .intro-box{padding:20px;border-radius:10px}
+    h1{font-size:1.5rem}
 }
 
-nav ul.menu{
-    list-style:none;
-    margin:0;
-    padding:0 12px;
-    display:flex;
-    width:100%;
-    justify-content:center;
-    align-items:center;
-    gap:4px;
-    min-height:64px;
-    flex-wrap:wrap;
-}
-
-nav ul.menu li{margin:0}
-nav ul.menu a{
+/* Resume page overrides: left-align content, keep title centered, remove list bullets */
+main.resume{text-align:left; padding-bottom:160px}
+main.resume h1{ text-align:center }
+main.resume .download-copy{text-align:center; margin-bottom:1.2rem }
+/* Hero background for resume header */
+main.resume .hero{ 
+    background-image: linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)), url('assets/images/back.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 48px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
     display:block;
-    padding:12px 16px;
-    color:var(--muted);
-    text-decoration:none;
-    font-weight:600;
-    font-size:0.95rem;
-    border-radius:999px;
 }
-
-nav ul.menu a:hover,
-nav ul.menu a:focus,
-nav ul.menu a[aria-current="page"]{
-    color:var(--accent);
-    background:#eef5ff;
-    outline:none;
-}
-
-main{
-    max-width:1100px;
-    margin:0 auto;
-    padding:120px 20px 72px;
-}
-
-.home-page,
-.home,
-.contact-page,
-.content-page{
-    text-align:center;
-}
-
-.hero-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:24px;
-    padding:40px 28px;
-    box-shadow:var(--shadow);
-    margin-bottom:28px;
-}
-
-.hero-card.narrow{
-    max-width:760px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.eyebrow{
-    margin:0 0 10px;
-    text-transform:uppercase;
-    letter-spacing:0.12em;
-    font-size:0.78rem;
-    font-weight:700;
-    color:var(--accent);
-}
-
-h1{
-    margin:0 0 14px;
-    font-size:clamp(2rem, 4vw, 3.4rem);
-    line-height:1.1;
-    color:#0f172a;
-}
-
-h2{
-    margin-top:0;
-    color:#0f172a;
-}
-
-.lead{
-    max-width:720px;
-    margin:0 auto;
-    color:var(--muted);
-    font-size:1.05rem;
-    line-height:1.7;
-}
-
-.hero-actions{
-    margin-top:24px;
-    display:flex;
-    gap:12px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.button{
-    display:inline-block;
-    padding:12px 20px;
-    border-radius:999px;
-    text-decoration:none;
-    font-weight:700;
-    transition:transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
-    cursor:pointer;
-    border:none;
-}
-
-.button:hover,
-.button:focus{
-    transform:translateY(-1px);
-}
-
-.button-primary{
-    background:var(--accent);
-    color:#fff;
-    box-shadow:0 10px 24px rgba(11,99,206,0.24);
-}
-
-.button-primary:hover,
-.button-primary:focus{
-    background:var(--accent-dark);
-}
-
-.button-secondary{
-    background:#fff;
-    color:var(--accent);
-    border:1px solid #cfe0fb;
-}
-
-.profile-grid,
-.content-grid,
-.cards-section,
-.contact-layout,
-.stack-section{
-    display:grid;
-    gap:24px;
-}
-
-.profile-grid{
-    grid-template-columns:1fr 1.2fr;
-    align-items:stretch;
-}
-
-.cards-section,
-.content-grid,
-.stack-section{
-    grid-template-columns:repeat(3, 1fr);
-}
-
-.contact-layout{
-    grid-template-columns:1.3fr 0.9fr;
-    align-items:start;
-}
-
-.profile-image-card,
-.intro-box,
-.info-card,
-.contact-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:22px;
-    box-shadow:var(--shadow);
-}
-
-.profile-image-card{
-    padding:18px;
-}
-
-.profile-image-card img{
-    width:100%;
-    border-radius:18px;
-    object-fit:cover;
-    box-shadow:0 8px 24px rgba(17,24,39,0.08);
-}
-
-.intro-box,
-.info-card,
-.contact-card{
-    padding:28px;
-    text-align:left;
-    line-height:1.8;
-}
-
-.contact-card form{
-    display:grid;
-    gap:16px;
-}
-
-.contact-card label{
-    display:block;
-    font-weight:600;
-    color:#1f2937;
-}
-
-.contact-card input,
-.contact-card textarea{
-    width:100%;
-    margin-top:6px;
-    padding:12px 14px;
-    border:1px solid var(--border);
-    border-radius:12px;
-    font:inherit;
-    background:#fff;
-}
-
-.contact-card textarea{
-    resize:vertical;
-}
-
-.status-text{
-    margin-top:14px;
-    color:var(--muted);
-}
-
-.contact-details p{
-    margin:0 0 14px;
-    line-height:1.7;
-}
-
-@media (max-width: 900px){
-    .profile-grid,
-    .content-grid,
-    .cards-section,
-    .contact-layout,
-    .stack-section{
-        grid-template-columns:1fr;
-    }
-}
-
-@media (max-width: 640px){
-    nav ul.menu a{
-        padding:10px 12px;
-        font-size:0.88rem;
-    }
-
-    main{
-        padding:150px 16px 56px;
-    }
-
-    .hero-card,
-    .intro-box,
-    .info-card,
-    .contact-card{
-        padding:22px;
-        border-radius:18px;
-    }
-}
+main.resume .hero a{ color: #ffffff; text-decoration:underline }
+main.resume section[aria-labelledby="education"]{ margin-top:80px }
+main.resume section{ margin-top:2rem; }
+main.resume ul, main.resume ul li{list-style:none; margin-left:0; padding-left:0}
+main.resume ul li{margin-bottom:0.8rem}
+main.resume .hero.centered-hero{ text-align:center; }
+main.resume section[aria-labelledby="interview-q-heading"]{ text-align:center; }
+main.resume.centered{ text-align:center; }
+main.resume.centered ul{ display:inline-block; text-align:center; }
+main.resume .video-embed{margin:1rem 0 0;}
+main.resume iframe{width:100%;max-width:100%;height:315px;border:none;border-radius:12px;}
+main.resume .embedded-video{display:block;width:100%;max-width:100%;height:auto;min-height:315px;background:#000;border:none;border-radius:12px;box-shadow:0 8px 24px rgba(17,24,39,0.12)}
+.contact-button-wrapper{margin-top:3.5rem; text-align:center}
+contact-button{display:inline-block;padding:12px 24px;background:#ffffff;color:var(--accent);border:1px solid #d1d5db;border-radius:999px;font-weight:700;text-decoration:none;box-shadow:0 8px 20px rgba(15,23,42,0.08);transition:transform 150ms ease,box-shadow 150ms ease}
+.contact-button:hover, .contact-button:focus{transform:translateY(-1px);box-shadow:0 12px 26px rgba(15,23,42,0.14)}
+main.home{padding-bottom:160px}
+main.resume ul{ list-style:none; padding-left:0; margin-left:0 }
+main.resume ul li{ margin-bottom:0.6rem }
