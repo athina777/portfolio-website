@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Contact</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -22,74 +22,36 @@
     </header>
 
     <main>
-        <h1>Contact</h1>
-        <p>If you'd like to get in touch, send a message using the form below.</p>
+        <section aria-labelledby="contact-heading">
+            <figure class="overlay-figure portfolio-hero-figure">
+                <img class="bg-photo" src="assets/images/back.jpg" alt="Contact page background">
+                <figcaption class="portfolio-hero-caption">
+                    <h1 id="contact-heading">Contact</h1>
+                    <p>If you would like to share feedback on my work, please use the form below.</p>
+                </figcaption>
+            </figure>
+        </section>
 
-        <form id="gmail-contact-form">
-            <label style="display:block;margin:12px 0;">Name
-                <input type="text" name="name" required style="width:100%;padding:8px;margin-top:6px;border:1px solid #e6e9ee;border-radius:6px;">
+        <form class="site-form" action="#" method="post">
+            <label for="name">Name
+                <input id="name" type="text" name="name" required>
             </label>
 
-            <label style="display:block;margin:12px 0;">Email
-                <input type="email" name="email" required style="width:100%;padding:8px;margin-top:6px;border:1px solid #e6e9ee;border-radius:6px;">
+            <label for="email">Email Address
+                <input id="email" type="email" name="email" required>
             </label>
 
-            <label style="display:block;margin:12px 0;">Message
-                <textarea name="message" rows="6" required style="width:100%;padding:8px;margin-top:6px;border:1px solid #e6e9ee;border-radius:6px;"></textarea>
+            <label for="comments">Comments
+                <textarea id="comments" name="comments" rows="6" required></textarea>
             </label>
 
-            <button type="submit" style="background:var(--accent);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600">Send Message</button>
+            <button type="submit">Submit</button>
         </form>
-
-        <p id="contact-status" style="margin-top:12px;color:var(--muted);"></p>
     </main>
 
-    <script>
-        const form = document.getElementById('gmail-contact-form');
-        const status = document.getElementById('contact-status');
-        const recipientEmail = 'athina.grigoriadou.7@gmail.com';
-
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(form);
-            const name = (formData.get('name') || '').toString().trim();
-            const email = (formData.get('email') || '').toString().trim();
-            const message = (formData.get('message') || '').toString().trim();
-
-            if (!name || !email || !message) {
-                status.textContent = 'Please complete all required fields.';
-                return;
-            }
-
-            if (recipientEmail === 'YOUR_GMAIL_ADDRESS@gmail.com') {
-                status.textContent = 'Set your Gmail address in contact.html first.';
-                return;
-            }
-
-            const subject = `Portfolio Contact from ${name}`;
-            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-
-            const params = new URLSearchParams({
-                view: 'cm',
-                fs: '1',
-                to: recipientEmail,
-                su: subject,
-                body
-            });
-
-            const gmailComposeUrl = `https://mail.google.com/mail/?${params.toString()}`;
-            const composeWindow = window.open(gmailComposeUrl, '_blank', 'noopener');
-
-            if (!composeWindow) {
-                const fallback = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                window.location.href = fallback;
-            }
-
-            status.textContent = 'Gmail compose opened. Send the email from Gmail.';
-            form.reset();
-        });
-    </script>
+    <footer>
+        <p>Name: Athina Grigoriadou | Email: athina.grigoriadou.7@gmail.com | Last Edited: June 30, 2026</p>
+    </footer>
 
 </body>
 </html>
