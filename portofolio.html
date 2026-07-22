@@ -3,45 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfolio | Athina Grigoriadou</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+
     <header aria-label="Primary">
         <nav role="navigation">
             <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="home.html">Professional Page</a></li>
-                <li><a href="about.html">Goals and Objectives</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="resume.html">Resume</a></li>
+                <li><a href="about.html">Goals and Objectives</a></li>
                 <li><a href="portofolio.html" aria-current="page">Portfolio</a></li>
                 <li><a href="interview.html">Interview</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="content-page">
-        <section class="hero-card narrow">
-            <p class="eyebrow">Portfolio</p>
-            <h1>My Work and Interests</h1>
-            <p class="lead">A collection of the areas I am passionate about and the kind of work I want to keep building.</p>
+    <main class="resume">
+        <section aria-labelledby="portfolio-heading">
+            <figure class="overlay-figure portfolio-hero-figure">
+                <img class="bg-photo" src="images/back.jpg" alt="Background scene with grayscale hover effect">
+                <figcaption class="portfolio-hero-caption">
+                    <h1 id="portfolio-heading">Portfolio Highlights</h1>
+                    <p>Organizations, experiences, and activities that shaped my professional growth and personal development.</p>
+                </figcaption>
+            </figure>
         </section>
 
-        <section class="content-grid">
-            <article class="info-card">
-                <h2>Front-End Development</h2>
-                <p>I enjoy creating responsive websites with clear structure, readable layouts, and accessible navigation.</p>
+        <section aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Professional and Athletic Experience</h2>
+            <article>
+                <h3>NSU Athletics | Division I Tennis</h3>
+                <p>Competing as a student-athlete taught me disciplined time management, teamwork, and resilience under pressure.</p>
+                <p>This experience strengthened my leadership, sharpened my focus, and helped me balance academics with competitive goals.</p>
             </article>
-            <article class="info-card">
-                <h2>User-Centered Design</h2>
-                <p>I am interested in building digital experiences that are simple, useful, and focused on real user needs.</p>
-            </article>
-            <article class="info-card">
-                <h2>Creative Interests</h2>
-                <p>Photography and travel inspire how I think about presentation, storytelling, and visual design.</p>
+            <article>
+                <h3>IT Peer Mentor</h3>
+                <p>Supporting peers with technology questions and campus systems helped me develop clear communication and problem-solving skills.</p>
+                <p>It reinforced my ability to explain technical concepts, build trust, and deliver helpful guidance in a collaborative environment.</p>
             </article>
         </section>
+
+        <section aria-labelledby="community-heading">
+            <h2 id="community-heading">Organizations and Leadership</h2>
+            <article>
+                <h3>International Student Association</h3>
+                <p>Participating in ISA events and cultural programs connected me with diverse perspectives and strengthened my community involvement.</p>
+                <p>This role improved my cross-cultural communication and gave me confidence planning welcoming experiences for fellow students.</p>
+            </article>
+            <article>
+                <h3>Cybersecurity Club</h3>
+                <p>Joining the club allowed me to explore cybersecurity concepts, collaborate on workshops, and learn from industry-focused discussions.</p>
+                <p>This activity deepened my technical understanding and motivated me to pursue secure, user-friendly web design.</p>
+            </article>
+        </section>
+
+        <section aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Personal Projects and Growth Activities</h2>
+            <article>
+                <h3>Responsive Web Portfolio</h3>
+                <p>Building this portfolio page helped me practice layout design, accessibility, and consistent styling across multiple pages.</p>
+                <p>It also gave me a polished way to showcase my skills and present information clearly to visitors.</p>
+            </article>
+            <article>
+                <h3>Travel Photography and Storytelling</h3>
+                <p>Exploring photography as a hobby has enhanced my eye for visual detail and taught me how to capture memorable moments.</p>
+                <p>This creative pursuit supports my ability to design attractive, engaging interfaces with thoughtful composition.</p>
+            </article>
+        </section>
+
+        <section aria-labelledby="css-showcase-heading">
+            <h2 id="css-showcase-heading">CSS Showcase</h2>
+            <p>Each item below is clearly labeled to demonstrate required CSS techniques.</p>
+
+            <h3>Text with Special Effects</h3>
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <strong>Label: Text with Special Effect (Text Shadow)</strong>
+                    <p class="text-shadow-demo">Text effect with layered shadow.</p>
+                </div>
+                <div class="showcase-card">
+                    <strong>Label: Glow</strong>
+                    <p class="glow-demo">Glowing emphasis text.</p>
+                </div>
+                <div class="showcase-card">
+                    <strong>Label: Letter Spacing</strong>
+                    <p class="letter-spacing-demo">Expanded</p>
+                </div>
+                <div class="showcase-card">
+                    <strong>Label: Other Text Effect</strong>
+                    <p class="other-text-demo">Wavy underline style.</p>
+                </div>
+            </div>
+
+            <h3>Picture with Special Effects</h3>
+            <div class="showcase-grid">
+                <figure class="showcase-card">
+                    <strong>Label: Picture with Special Effect (Filter Effect)</strong>
+                    <img class="special-image img-filter-demo" src="images/IMG_0642.jpg" alt="Athina portrait with filter effect">
+                </figure>
+                <figure class="showcase-card">
+                    <strong>Label: Shadow Effect</strong>
+                    <img class="special-image img-shadow-demo" src="images/IMG_0642.jpg" alt="Athina portrait with shadow effect">
+                </figure>
+                <figure class="showcase-card">
+                    <strong>Label: Border Effect</strong>
+                    <img class="special-image img-border-demo" src="images/IMG_0642.jpg" alt="Athina portrait with border effect">
+                </figure>
+                <figure class="showcase-card">
+                    <strong>Label: Other Image Effect</strong>
+                    <img class="special-image img-other-demo" src="images/IMG_0642.jpg" alt="Athina portrait with transformed clip-path effect">
+                </figure>
+            </div>
+
+            <h3>Animation</h3>
+            <div class="showcase-card">
+                <strong>Label: Animated Element</strong>
+                <div class="animation-demo" aria-hidden="true"></div>
+            </div>
+
+            <h3>Transition</h3>
+            <div class="showcase-card">
+                <strong>Label: Hover Transition</strong>
+                <p class="transition-demo">Hover to see color and motion transition.</p>
+            </div>
+
+            <h3>Linear Gradient</h3>
+            <div class="showcase-card">
+                <strong>Label: Linear Gradient Example</strong>
+                <div class="gradient-demo" aria-label="Linear gradient demonstration block"></div>
+            </div>
+
+            <h3>Transformation</h3>
+            <div class="showcase-card">
+                <strong>Label: Transformation Example</strong>
+                <p class="transform-demo">Rotate, Scale, and Skew in one element.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="contact-button-wrapper">
+                <a class="contact-button" href="../contact.html">Contact me</a>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>Name: Athina Grigoriadou | Email: athina.grigoriadou.7@gmail.com | Last Edited: June 30, 2026</p>
+    </footer>
+
 </body>
 </html>

@@ -2,46 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resume | Athina Grigoriadou</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Resume - Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+
     <header aria-label="Primary">
         <nav role="navigation">
             <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="home.html">Professional Page</a></li>
-                <li><a href="about.html">Goals and Objectives</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="resume.html" aria-current="page">Resume</a></li>
+                <li><a href="about.html">Goals and Objectives</a></li>
                 <li><a href="portofolio.html">Portfolio</a></li>
                 <li><a href="interview.html">Interview</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="content-page">
-        <section class="hero-card narrow">
-            <p class="eyebrow">Resume</p>
-            <h1>Athina Grigoriadou</h1>
-            <p class="lead">Computer Information Systems student with a cybersecurity focus, athlete discipline, and interest in front-end development.</p>
+    <main class="resume">
+        <section aria-labelledby="resume-heading">
+            <figure class="overlay-figure portfolio-hero-figure">
+                <img class="bg-photo" src="images/back.jpg" alt="Resume header background">
+                <figcaption class="portfolio-hero-caption">
+                    <h1 id="resume-heading">Resume</h1>
+                    <p class="download-copy">Download a printable copy: <a href="resume.pdf" download>Download PDF</a></p>
+                </figcaption>
+            </figure>
         </section>
 
-        <section class="stack-section">
-            <article class="info-card">
-                <h2>Education</h2>
-                <p>Degree in Computer Information Systems with a focus on Cybersecurity.</p>
+        <section aria-labelledby="summary">
+            <h2 id="summary">Professional Summary</h2>
+            <p>I am an international student from Greece pursuing a degree in Computer Information Systems with a focus on Cybersecurity. As a Division I tennis athlete at NSU, I bring strong discipline, teamwork, and time management to my technology work. My interests include front-end development, user-centered design, accessibility, traveling, and photography.</p>
+        </section>
+
+        <section aria-labelledby="education">
+            <h2 id="education">Education</h2>
+            <ul>
+                <li>
+                    <strong>Model Vocational High School, Thessaloniki, Greece</strong><br>
+                    2023 &ndash; 2025<br>
+                    Completed a computer science-focused program and gained two years of programming experience before university.
+                </li>
+                <li>
+                    <strong>NSU Northwestern State University of Louisiana</strong><br>
+                    2025 &ndash; Present<br>
+                    Major: Computer Information Systems with a focus on Cybersecurity and Web Development.
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="experience">
+            <h2 id="experience">Experience</h2>
+            <article>
+                <h3>Frontend Developer — Erasmus Program, Córdoba, Spain</h3>
+                <p class="meta">May 2 &ndash; May 16, 2025</p>
+                <ul>
+                    <li>Built a company website in a three-person team during a two-week programming project.</li>
+                    <li>Created features using HTML, PHP, Python, and database integration.</li>
+                    <li>Learned PHP quickly and implemented features on schedule while working 5&ndash;7 hours per day.</li>
+                </ul>
             </article>
-            <article class="info-card">
-                <h2>Experience & Strengths</h2>
-                <p>Experience building responsive interfaces with clear navigation and readable content, with an emphasis on accessibility and usability.</p>
-            </article>
-            <article class="info-card">
-                <h2>Activities</h2>
-                <p>D1 tennis athlete at NSU with strong time management, teamwork, and commitment.</p>
+            <article>
+                <h3>Web Project Contributor — Team-based Learning</h3>
+                <p class="meta">2024 &ndash; 2025</p>
+                <ul>
+                    <li>Collaborated with teammates to design and implement front-end pages.</li>
+                    <li>Improved development workflows and practiced agile teamwork.</li>
+                </ul>
             </article>
         </section>
+
+        <section aria-labelledby="skills">
+            <h2 id="skills">Skills</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript, C++, Python, Java, SQL</li>
+                <li>Responsive design and accessibility (a11y)</li>
+                <li>React, Git, Chrome DevTools</li>
+                <li>AI concepts, user-centered design, and problem solving</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="certifications">
+            <h2 id="certifications">Certifications</h2>
+            <ul>
+                <li>Diploma qualified to work as a Web Page Developer</li>
+                <li>Microsoft Word & Excel certifications</li>
+                <li>AI development certificates and online workshop participation</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="awards">
+            <h2 id="awards">Awards & Honors</h2>
+            <ul>
+                <li>Recognized during the Erasmus project in Córdoba for delivering a qualified website and strong project delivery skills.</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="contact-button-wrapper">
+                <a class="contact-button" href="../contact.html">Contact me</a>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>Name: Athina Grigoriadou | Email: athina.grigoriadou.7@gmail.com | Last Edited: June 30, 2026</p>
+    </footer>
+
 </body>
 </html>
