@@ -425,7 +425,8 @@ main.resume .download-copy {
     transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.number-card:hover {
+.number-card:hover,
+.number-card:focus-within {
     transform: translateY(-3px);
     box-shadow: 0 14px 26px rgba(10, 32, 48, 0.18);
 }
@@ -499,7 +500,8 @@ main.resume .download-copy {
     transition: background-color 180ms ease, transform 180ms ease;
 }
 
-.card-choice-row label:hover {
+.card-choice-row label:hover,
+.card-choice-row label:focus-within {
     background: rgba(14, 138, 143, 0.14);
     transform: translateY(-1px);
 }
