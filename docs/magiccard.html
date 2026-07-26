@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Magic Card Number Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header aria-label="Primary">
+        <nav role="navigation">
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="assets/resume.html">Resume</a></li>
+                <li><a href="assets/about.html">Goals and Objectives</a></li>
+                <li><a href="assets/portofolio.html">Portfolio</a></li>
+                <li><a href="assets/interview.html">Interview</a></li>
+                <li><a href="magiccard.html" aria-current="page">JavaScript</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="js-heading">
+            <figure class="overlay-figure portfolio-hero-figure">
+                <img class="bg-photo" src="assets/images/back.jpg" alt="Magic card game background">
+                <figcaption class="portfolio-hero-caption">
+                    <h1 id="js-heading">Magic Card Number Game</h1>
+                    <p>Think of a number from 1 to 63, then answer yes or no for each card.</p>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section class="showcase-card game-intro" aria-labelledby="game-heading">
+            <h2 id="game-heading">How to Play</h2>
+            <p>Pick one secret number from 1 to 63. For each card, check whether your number appears on that card. The game will add the card values together and reveal your number.</p>
+            <p class="game-note">Card values: 1, 2, 4, 8, 16, 32</p>
+        </section>
+
+        <form id="magic-form" class="game-board-form" action="#" method="post">
+            <section class="game-board" aria-labelledby="cards-heading">
+                <h2 id="cards-heading">Choose the Cards That Contain Your Number</h2>
+                <div id="cards-container" class="cards-grid"></div>
+            </section>
+
+            <section class="showcase-card game-actions" aria-labelledby="result-heading">
+                <h2 id="result-heading">Your Result</h2>
+                <p id="magic-message">Select the cards that include your number, then click Calculate.</p>
+                <p class="selection-status" id="selection-status" aria-live="polite"></p>
+                <div class="game-buttons">
+                    <button class="magic-button" id="magic-button" type="submit">Calculate My Number</button>
+                    <button class="magic-reset-button" id="reset-button" type="button">Reset</button>
+                </div>
+                <p class="game-output" id="game-output" aria-live="polite"></p>
+            </section>
+        </form>
+
+        <section class="showcase-card js-writing-section" aria-labelledby="reflection-heading">
+            <h2 id="reflection-heading">Reflection</h2>
+            <p>
+                While creating this game, I learned how JavaScript can take user choices and turn them into a real calculation instantly on the page. The biggest challenge was making sure each card displayed the correct set of numbers based on its value and making the interface easy to follow. I also had to carefully test the logic with different secret numbers to confirm the total always matched the user's choice. Another challenge was designing clear feedback messages so users understand what to do before and after calculation. This project helped me see that HTML structures the content, CSS controls the visual design, and JavaScript adds behavior and decision-making. JavaScript feels different because it can react to events, run logic, and dynamically update results without refreshing the page.
+            </p>
+        </section>
+
+        <section class="showcase-card js-writing-section" aria-labelledby="walkthrough-heading">
+            <h2 id="walkthrough-heading">JavaScript Code Walkthrough</h2>
+            <p>
+                The purpose of this game is to guess the number a user is thinking of between 1 and 63 by using six binary-value cards. The user interacts with the page by selecting Yes or No for each card, depending on whether their number appears in that card's list. I used variables such as cardValues to store each card's value and references like cardsContainer, gameOutput, and selectionStatus to control content on the page. Functions are used to build card numbers, create each card element, read selected cards, and calculate the final number. Event handlers respond to submit for calculation, click for reset, and change for live status updates as selections are made. The selected cards are processed by checking which radio inputs are set to Yes and collecting their matching card values. Those values are added together to compute the final result, and the answer is displayed dynamically in the result area without reloading the page. Conditional logic with if/else and switch determines validation messages, progress feedback, and when to show the final number.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Name: Athina Grigoriadou | Email: athina.grigoriadou.7@gmail.com | Last Edited: June 30, 2026</p>
+    </footer>
+
+    <script>
+        const cardValues = [1, 2, 4, 8, 16, 32];
+        const cardsContainer = document.getElementById('cards-container');
+        const magicForm = document.getElementById('magic-form');
+        const magicButton = document.getElementById('magic-button');
+        const resetButton = document.getElementById('reset-button');
+        const magicMessage = document.getElementById('magic-message');
+        const selectionStatus = document.getElementById('selection-status');
+        const gameOutput = document.getElementById('game-output');
+
+        const createCardNumbers = (cardValue) => {
+            const numbers = [];
+            for (let number = 1; number <= 63; number += 1) {
+                if ((number & cardValue) === cardValue) {
+                    numbers.push(number);
+                }
+            }
+            return numbers;
+        };
+
+        const createCard = (cardValue) => {
+            const card = document.createElement('article');
+            card.className = 'number-card';
+
+            const header = document.createElement('div');
+            header.className = 'number-card-header';
+
+            const label = document.createElement('span');
+            label.className = 'number-card-value';
+            label.textContent = `Card ${cardValue}`;
+
+            const prompt = document.createElement('span');
+            prompt.className = 'number-card-prompt';
+            prompt.textContent = 'Does your number appear here?';
+
+            header.append(label, prompt);
+
+            const grid = document.createElement('div');
+            grid.className = 'number-grid';
+
+            createCardNumbers(cardValue).forEach((number) => {
+                const span = document.createElement('span');
+                span.textContent = number;
+                grid.appendChild(span);
+            });
+
+            const choices = document.createElement('div');
+            choices.className = 'card-choice-row';
+
+            const yesId = `card-${cardValue}-yes`;
+            const noId = `card-${cardValue}-no`;
+
+            choices.innerHTML = `
+                <label for="${yesId}"><input id="${yesId}" type="radio" name="card-${cardValue}" value="yes"> Yes</label>
+                <label for="${noId}"><input id="${noId}" type="radio" name="card-${cardValue}" value="no" checked> No</label>
+            `;
+
+            card.append(header, grid, choices);
+            return card;
+        };
+
+        cardValues.forEach((cardValue) => {
+            cardsContainer.appendChild(createCard(cardValue));
+        });
+
+        const getSelectedCards = () => {
+            const selectedCards = [];
+            cardValues.forEach((cardValue) => {
+                const selected = document.querySelector(`input[name="card-${cardValue}"]:checked`);
+                if (selected && selected.value === 'yes') {
+                    selectedCards.push(cardValue);
+                }
+            });
+            return selectedCards;
+        };
+
+        const calculateSelectedNumber = (selectedCards) => {
+            let total = 0;
+            selectedCards.forEach((cardValue) => {
+                total += cardValue;
+            });
+            return total;
+        };
+
+        const updateSelectionStatus = () => {
+            const selectedCount = getSelectedCards().length;
+            switch (selectedCount) {
+                case 0:
+                    selectionStatus.textContent = 'No cards selected yet.';
+                    break;
+                case 1:
+                    selectionStatus.textContent = '1 card selected.';
+                    break;
+                default:
+                    selectionStatus.textContent = `${selectedCount} cards selected.`;
+            }
+        };
+
+        cardsContainer.addEventListener('change', updateSelectionStatus);
+
+        magicForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const selectedCards = getSelectedCards();
+            const total = calculateSelectedNumber(selectedCards);
+
+            if (selectedCards.length === 0) {
+                gameOutput.textContent = 'Please select at least one card with Yes before calculating.';
+                magicMessage.textContent = 'Select the cards that include your number, then click Calculate.';
+                magicForm.classList.remove('game-revealed');
+                return;
+            }
+
+            if (total < 1 || total > 63) {
+                gameOutput.textContent = 'The selected cards are out of range. Please try again.';
+                magicForm.classList.remove('game-revealed');
+                return;
+            }
+
+            gameOutput.textContent = `Your number is ${total}.`;
+            magicMessage.textContent = 'The cards have been added together and your number has been revealed.';
+            magicForm.classList.add('game-revealed');
+        });
+
+        resetButton.addEventListener('click', () => {
+            cardValues.forEach((cardValue) => {
+                const noRadio = document.getElementById(`card-${cardValue}-no`);
+                if (noRadio) {
+                    noRadio.checked = true;
+                }
+            });
+
+            gameOutput.textContent = '';
+            magicMessage.textContent = 'Select the cards that include your number, then click Calculate.';
+            magicForm.classList.remove('game-revealed');
+            updateSelectionStatus();
+        });
+
+        updateSelectionStatus();
+    </script>
+
+</body>
+</html>
